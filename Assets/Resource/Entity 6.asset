@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99efce609b9b2ff4395563edf1a85221, type: 3}
+  m_Name: Entity 6
+  m_EditorClassIdentifier: 
+  Type: 1
+  No: 1
+  Message: test
+  Phot: {fileID: 3465286685962602723, guid: 30e9b55b38be940498976d903361ea45, type: 3}
+  SeSuperLike: 6
+  SeLike: 1
+  SeNope: 1
