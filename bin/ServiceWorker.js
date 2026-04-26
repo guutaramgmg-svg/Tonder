@@ -1,4 +1,4 @@
-const cacheName = "DefaultCompany-ai_JAM-1.0";
+const cacheName = "DefaultCompany-Tonder-1.0";
 const contentToCache = [
     "Build/bin.loader.js",
     "Build/bin.framework.js.gz",
