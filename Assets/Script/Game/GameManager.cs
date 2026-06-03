@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // debug—p
+    // debugï¿½p
     public Text debug_TimerTx;
     public Text debug_PointTx;
     public Text debug_StartTx;
 
 
-    // ƒpƒ‰ƒƒ^
+    // ï¿½pï¿½ï¿½ï¿½ï¿½ï¿½^
     public Text TimerTx;
     
 
@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public SPLController splController;
     private SaveManager saveManager;
     private SoundManager soundManager;
+
+    private PointManager pointManager;
+
     private bool End = false;
 
     private int Timer = 30;
@@ -32,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         saveManager = GameObject.Find("SaveManager").GetComponent<SaveManager>();
         soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        pointManager = GameObject.Find("PointManager").GetComponent<PointManager>();
+
         soundManager.PlayBGM(SoundManager.BGM.Game);
 
         constructor();
@@ -39,12 +44,12 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+    /// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^
     /// </summary>
     private void constructor()
     {
         End = false;
-        PointUpdate(0);
+        //PointUpdate(0);
         TimerUpdate(Timer);
     }
 
@@ -74,7 +79,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ŠÔ‚ÌXV
+    /// ï¿½ï¿½ï¿½Ô‚ÌXï¿½V
     /// </summary>
     /// <param name="time"></param>
     public void TimerUpdate(int time)
@@ -89,17 +94,18 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|ƒCƒ“ƒg‚ÌXV
+    /// ï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ÌXï¿½V
     /// </summary>
     /// <param name="point"></param>
     public void PointUpdate(int point)
     {
+        pointManager.ShowPoint(this.transform.position,point);
         m_Point = m_Point + point;
         debug_PointTx.text = "Point:" + m_Point;
     }
 
     /// <summary>
-    /// SPLXV
+    /// SPLï¿½Xï¿½V
     /// </summary>
     /// <param name="point"></param>
     public void SPLUpdate(int point)
@@ -108,7 +114,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// SPLƒŠƒZƒbƒg
+    /// SPLï¿½ï¿½ï¿½Zï¿½bï¿½g
     /// </summary>
     public void SPLReset()
     {
@@ -116,7 +122,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€I—¹
+    /// ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½ï¿½
     /// </summary>
     void EndScene()
     {

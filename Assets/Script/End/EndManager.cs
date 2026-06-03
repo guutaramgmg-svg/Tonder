@@ -25,7 +25,7 @@ public class EndManager : MonoBehaviour
     public List<Sprite> clear;
     public List<Sprite> over;
 
-    private const int check = 200;
+    private const int check = 100;
 
     public SoundManager soundManager;
 
@@ -74,7 +74,7 @@ public class EndManager : MonoBehaviour
 
     private IEnumerator EndAnime(List<Sprite> anim)
     {
-        //ƒ‰ƒuƒ`ƒFƒbƒN
+        //ï¿½ï¿½ï¿½uï¿½`ï¿½Fï¿½bï¿½N
         Tonder.SetActive(true);
         TonderWk.SetActive(true);
 

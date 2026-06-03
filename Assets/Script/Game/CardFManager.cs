@@ -16,21 +16,21 @@ public class CardFManager : MonoBehaviour
     private Quaternion _initialRotation;
     Vector3 target;
 
-    // ƒXƒƒCƒv”ÍˆÍ
+    // ï¿½Xï¿½ï¿½ï¿½Cï¿½vï¿½Íˆï¿½
     private float ChangeDrag = 1;
 
-    //Like Nope ”»’è
+    //Like Nope ï¿½ï¿½ï¿½ï¿½
     private bool LikeCk;
     private bool NopeCk;
     private bool SuperLikeCk;
 
-    //ƒhƒ‰ƒbƒO”»’è
+    //ï¿½hï¿½ï¿½ï¿½bï¿½Oï¿½ï¿½ï¿½ï¿½
     private bool isDragging = false;
 
     public GameObject CardB;
     public CardListManager cardListManager;
 
-    // ƒ|ƒCƒ“ƒg
+    // ãƒã‚¤ãƒ³ãƒˆç²å¾—
     private const int m_ButaLikePoint = 1;
     private const int m_ButaSuperLikePoint = 7;
     private const int m_ButaNopePoint = -5;
@@ -38,7 +38,7 @@ public class CardFManager : MonoBehaviour
     private const int m_KoukokuSuperLikePoint = 7;
     private const int m_KoukokuNopePoint = 1;
 
-    // SLPƒ|ƒCƒ“ƒg
+    // SLPç²å¾—
     private const int m_ButaLikeSLP = 230;
     private const int m_ButaNopeSLP = 70;
 
@@ -67,11 +67,10 @@ public class CardFManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ}ƒEƒXƒ_ƒEƒ“
+    /// ãƒã‚¦ã‚¹æŠ¼ä¸‹æ™‚
     /// </summary>
     void OnMouseDown()
     {
-        Debug.Log("ƒNƒŠƒbƒN");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - mousePosition;
         
@@ -81,27 +80,23 @@ public class CardFManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ}ƒEƒXƒhƒ‰ƒbƒO
+    /// ãƒã‚¦ã‚¹æŠ¼ä¸‹ä¸­
     /// </summary>
     void OnMouseDrag()
     {
-        Debug.Log("ƒhƒ‰ƒbƒO");
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // ƒhƒ‰ƒbƒO’†‚Ìê‡
+        // ï¿½hï¿½ï¿½ï¿½bï¿½Oï¿½ï¿½ï¿½Ìê‡
         if (isDragging)
         {
             transform.position = mousePosition + offset;
             Vector3 direction = target - transform.position;
-            // Šp“x‚ğ‹‚ß‚éB
+            // ï¿½pï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½B
             float angle = Mathf.Atan2(direction.x, direction.y);
-            //ƒIƒuƒWƒFƒNƒg‚ğQuaternion.AngleAxis‚ğg‚Á‚Ä‰ñ“]‚³‚¹‚éB
+            //ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½Quaternion.AngleAxisï¿½ï¿½ï¿½gï¿½ï¿½ï¿½Ä‰ï¿½]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
             transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.back);
         }
-
-        // D‚«Œ™‚¢”»’è‹——£
-        // ‰¡
+        
         var Horizontal = mousePosition.x - wkoffset.x;
-        // c
         var Vertical = mousePosition.y - wkoffset.y;
 
 
@@ -115,8 +110,6 @@ public class CardFManager : MonoBehaviour
                     Like.SetActive(false);
                     Nope.SetActive(false);
                     SuperLike.SetActive(true);
-
-                    Debug.Log("‰º" + Mathf.Abs(Vertical));
                     LikeCk = false;
                     NopeCk = false;
                     SuperLikeCk = true;
@@ -126,8 +119,6 @@ public class CardFManager : MonoBehaviour
                     Like.SetActive(false);
                     Nope.SetActive(false);
                     SuperLike.SetActive(false);
-
-                    Debug.Log("ã" + Mathf.Abs(Vertical));
                     LikeCk = false;
                     NopeCk = false;
                     SuperLikeCk = false;
@@ -141,8 +132,6 @@ public class CardFManager : MonoBehaviour
                 Like.SetActive(true);
                 Nope.SetActive(false);
                 SuperLike.SetActive(false);
-
-                Debug.Log("‰E" + Mathf.Abs(Horizontal));
                 LikeCk = true;
                 NopeCk = false;
                 SuperLikeCk = false;
@@ -153,12 +142,9 @@ public class CardFManager : MonoBehaviour
                 Like.SetActive(false);
                 Nope.SetActive(true);
                 SuperLike.SetActive(false);
-
                 LikeCk = false;
                 NopeCk = true;
                 SuperLikeCk = false;
-
-                Debug.Log("¶" + Mathf.Abs(Horizontal));
             }
         }
         else
@@ -166,7 +152,6 @@ public class CardFManager : MonoBehaviour
             LikeCk = false;
             NopeCk = false;
             SuperLikeCk = false;
-
             Nope.SetActive(false);
             Like.SetActive(false);
             SuperLike.SetActive(false);
@@ -174,11 +159,10 @@ public class CardFManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ}ƒEƒXƒAƒbƒv
+    /// ãƒã‚¦ã‚¹ã‚’é›¢ã—ãŸã‚‰
     /// </summary>
     void OnMouseUp()
     {
-        Debug.Log("ƒNƒŠƒbƒvƒAƒbƒv");
         isDragging = false;
         Nope.SetActive(false);
         Like.SetActive(false);
@@ -186,14 +170,14 @@ public class CardFManager : MonoBehaviour
 
         if (LikeCk == true || NopeCk == true || SuperLikeCk == true)
         {
-            //likeNope‚ğ”»’è‚·‚é
+            //LikeNopeåˆ¤å®š
             LikeNopeJudge();
         }
         Reset();
     }
 
     /// <summary>
-    /// ƒŠƒZƒbƒg
+    /// ï¿½ï¿½ï¿½Zï¿½bï¿½g
     /// </summary>
     public void Reset()
     {
@@ -205,7 +189,7 @@ public class CardFManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJ[ƒh‚ğ”ñ•\¦‚É‚µA’¼Œã‚ÉƒJ[ƒhƒŠƒ[ƒh‚ğÀs‚·‚éB
+    /// ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½É‚ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ÉƒJï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ï¿½B
     /// </summary>
     public void CardDel()
     {
@@ -221,7 +205,7 @@ public class CardFManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Œã‚ë‚ÌƒJ[ƒh‚©‚çƒJ[ƒh‚ğƒ[ƒh‚·‚éB
+    /// ï¿½ï¿½ï¿½ÌƒJï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½Jï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½B
     /// </summary>
     public void Cardreload()
     {
@@ -229,60 +213,63 @@ public class CardFManager : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = m_Entity.Phot;
         this.gameObject.SetActive(true);
         
-        //Œã‚ë‚ÌƒJ[ƒh‚ğƒŠƒtƒŒƒbƒVƒ…‚·‚éB
+        //ï¿½ï¿½ï¿½ÌƒJï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½ï¿½tï¿½ï¿½ï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½B
         cardListManager.CardRefresh();
     }
 
     /// <summary>
-    /// LikeNope‚ğ”»’è‚µƒ|ƒCƒ“ƒg‚ğ’Ç‰Á‚·‚é
+    /// LikeNopeï¿½ğ”»’è‚µï¿½|ï¿½Cï¿½ï¿½ï¿½gï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public void LikeNopeJudge()
     {
+        // å³ã‚¹ãƒ¯ã‚¤ãƒ—
         if (LikeCk)
         {
             cardListManager.SePlay(m_Entity.SeLike);
             if (m_Entity.Type == false)
             {
-                //ƒuƒ^Like‚Ìê‡
+                //ï¿½uï¿½^Likeï¿½Ìê‡
                 cardListManager.SLPUpdate(m_ButaLikeSLP);
                 cardListManager.PointUpDate(m_ButaLikePoint);
             }
             else
             {
-                //LLike‚Ìê‡
+                //ï¿½Lï¿½ï¿½Likeï¿½Ìê‡
                 cardListManager.SLPUpdate(m_KoukokuLikeSLP);
                 cardListManager.PointUpDate(m_KoukokuLikePoint);
             }
         }
 
+        // å·¦ã‚¹ãƒ¯ã‚¤ãƒ—
         if (NopeCk)
         {
             cardListManager.SePlay(m_Entity.SeNope);
             if (m_Entity.Type == false)
             {
-                //ƒuƒ^Nope‚Ìê‡
+                //ï¿½uï¿½^Nopeï¿½Ìê‡
                 cardListManager.SLPUpdate(m_ButaNopeSLP);
                 cardListManager.PointUpDate(m_ButaNopePoint);
             }
             else
             {
-                //LNope‚Ìê‡
+                //ï¿½Lï¿½ï¿½Nopeï¿½Ìê‡
                 cardListManager.SLPUpdate(m_KoukokuNopeSLP);
                 cardListManager.PointUpDate(m_KoukokuNopePoint);
             }
         }
 
+        // ä¸Šã‚¹ãƒ¯ã‚¤ãƒ—
         if (SuperLikeCk)
         {
             cardListManager.SePlay(m_Entity.SeSuperLike);
             if (m_Entity.Type == false)
             {
-                //ƒuƒ^Like‚Ìê‡
+                //ï¿½uï¿½^Likeï¿½Ìê‡
                 cardListManager.PointUpDate(m_ButaSuperLikePoint);
             }
             else
             {
-                //LLike‚Ìê‡
+                //ï¿½Lï¿½ï¿½Likeï¿½Ìê‡
                 cardListManager.PointUpDate(m_KoukokuSuperLikePoint);
             }
             cardListManager.SLPReset();

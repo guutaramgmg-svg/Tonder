@@ -28,7 +28,7 @@ public class CardListManager : MonoBehaviour
     }
 
 
-    //�؂ƍL���̎d����
+    // カード設定
     private void CardSet()
     {
         foreach (var value in entitiyList)
@@ -44,20 +44,37 @@ public class CardListManager : MonoBehaviour
         }
     }
 
+    // カードリフレッシュ
     public void CardRefresh()
     {
         cardBManager.SpriteRefresh(GetEntity());
     }
 
+    /// <summary>
+    /// ポイント更新
+    /// </summary>
+    /// <param name="point"></param>
     public void PointUpDate(int point)
     {
+        // ポイント更新
         gameManager.PointUpdate(point);
+        Debug.Log("ポイント更新：" + point);
     }
 
+    /// <summary>
+    /// SP更新
+    /// </summary>
+    /// <param name="point"></param>
     public void SLPUpdate(int point)
     {
+        // SP更新
         gameManager.SPLUpdate(point);
+        Debug.Log("SP更新：" + point);
     }
+
+    /// <summary>
+    /// SPリセット
+    /// </summary>
     public void SLPReset()
     {
         gameManager.SPLReset();
@@ -87,6 +104,4 @@ public class CardListManager : MonoBehaviour
     {
         gameManager.SePlay(se);
     }
-
-
 }
